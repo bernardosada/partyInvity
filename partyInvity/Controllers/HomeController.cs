@@ -16,12 +16,19 @@ namespace partyInvity.Controllers
             return View();
         }
 
+
+        //Adding dynamic output
         public ViewResult MyView()
         {
             int hour = DateTime.Now.Hour;
 
             ViewBag.Greeting = hour < 12 ? "Good Morning" : "Good Afternoon";
 
+            return View();
+        }
+
+        public ViewResult Register()
+        {
             return View();
         }
     }
