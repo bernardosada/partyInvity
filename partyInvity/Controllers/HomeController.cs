@@ -27,9 +27,18 @@ namespace partyInvity.Controllers
             return View();
         }
 
+        [HttpGet]
         public ViewResult Register()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ViewResult Register(GuestResponse guestResponse)
+        {
+            //Todo: store response from guest
+            Repository.AddResponse(guestResponse);
+            return View("ThankYou", guestResponse);
         }
     }
 }
