@@ -11,27 +11,18 @@ namespace partyInvity.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
-        public IActionResult Index()
+        public ViewResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        public ViewResult MyView()
         {
-            return View();
-        }
+            int hour = DateTime.Now.Hour;
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            ViewBag.Greeting = hour < 12 ? "Good Morning" : "Good Afternoon";
+
+            return View();
         }
     }
 }
