@@ -1,4 +1,5 @@
-﻿
+﻿@model partyInvity.Models.GuestResponse
+
 @{
     Layout = null;
 }
@@ -10,9 +11,39 @@
     <title>Register</title>
 </head>
  <body>
-     <div>
+     <form asp-action="Register" method="post">
+         <div class="form-group">
+             <label asp-for="Name">Name:</label>
+             <input asp-for="Name" class="form-control" placeholder="Enter Your Name" />
+         </div>
 
-     </div>
+         <div class="form-group">
+             <label asp-for="Email">Email:</label>
+             <input asp-for="Email" class="form-control" placeholder="Enter Your Email" />
+         </div>
+
+         <div class="form-group">
+             <label asp-for="Phone">Phone:</label>
+             <input asp-for="Phone" class="form-control" placeholder="Enter Your Phone" />
+         </div>
+
+         <div class="form-group">
+             <label asp-for="willAttend">Are you comming to the party?</label>
+             <select asp-for="willAttend" class="form-control" >
+                 <option value="">
+                     Choose an option
+                 </option>
+                 <option value="true">
+                     Yes, I will go to the Party:
+                 </option>
+                 <option value="false">
+                     No, Sorry i cant make it.
+                 </option>
+             </select>
+         </div>
+
+         <button type="submit" class="btn btn-primary">Submit</button>
+     </form>
  </body>
 </html>
 
