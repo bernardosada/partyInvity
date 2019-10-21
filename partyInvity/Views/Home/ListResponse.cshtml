@@ -1,0 +1,44 @@
+﻿@model IEnumerable<GuestResponse>
+
+@{
+    ViewData["Title"] = "ListResponse";
+}
+
+<h1>List Response</h1>
+<table class="table">
+    <thead>
+        <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+         <th>Will Attend</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (GuestResponse r in Model)
+        {
+      
+            <tr>
+                <td>
+                    @r.Name
+                    @r.Phone
+                    @r.Email
+                </td>
+                <td>
+                    @if(r.willAttend == true)
+                    {
+                        @:yes
+                    }
+                    else if(r.willAttend == false)
+                    {
+                        @: No
+                    }
+                    else
+                    {
+                        @: ?
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

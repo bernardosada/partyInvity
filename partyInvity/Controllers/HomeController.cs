@@ -40,5 +40,10 @@ namespace partyInvity.Controllers
             Repository.AddResponse(guestResponse);
             return View("ThankYou", guestResponse);
         }
+
+        public ViewResult ListResponse()
+        {
+            return View(Repository.Responses);
+        }
     }
 }
