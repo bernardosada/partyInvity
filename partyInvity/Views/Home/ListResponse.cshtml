@@ -5,6 +5,20 @@
 }
 
 <h1>List Response</h1>
+@if (Model.Count() == 0)
+{
+    <div class="alert alert-info" role="alert">
+        <h4 class="alert-heading">Be the first to register</h4>
+        <p>
+            Be the first to Register and you will win a special drink at the party.
+        </p>
+
+
+    </div>
+}
+else
+{
+
 <table class="table">
     <thead>
         <tr>
@@ -17,7 +31,7 @@
     <tbody>
         @foreach (GuestResponse r in Model)
         {
-      
+
             <tr>
                 <td>
                     @r.Name
@@ -25,11 +39,11 @@
                     @r.Email
                 </td>
                 <td>
-                    @if(r.willAttend == true)
+                    @if (r.willAttend == true)
                     {
                         @:yes
                     }
-                    else if(r.willAttend == false)
+                    else if (r.willAttend == false)
                     {
                         @: No
                     }
@@ -42,3 +56,4 @@
         }
     </tbody>
 </table>
+}
